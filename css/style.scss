@@ -1,0 +1,153 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700);
+* {
+  margin: 0;
+  padding: 0; 
+  outline:none;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+$blue: #3898C8;
+$orange: #F2A21A;
+$lorange: #f7c97b;
+$gray: #E2E1DF;
+$dgray: #7b7b7b;
+$green: #84d07e;
+$dblue: #19688f;
+$ddblue: #0C2F4E;
+$lblue: #5bb6e3;
+$black: #232323;
+$red: #eb4e41;
+
+a{
+	text-decoration: none;
+	color:$dgray;
+}
+button{
+	border:none;
+    padding:15px 25px 17px 55px;	
+	font-size:18px;
+	display:block;
+	cursor: pointer !important;
+	background-color: #3F93D2;
+	color:white;
+
+
+			i{
+				font-size: 36px;
+				vertical-align: middle;
+				position:absolute;
+				margin-left:-31px;
+
+			}	
+}
+
+#demo{
+	max-width: 640px;
+}
+#results{
+	background-color: $red;
+	padding-left:63px;
+	padding-right:10px;
+	padding-bottom: 10px;
+}
+table {
+	width: 96%;
+    border-collapse: collapse;
+    margin-bottom:10px;
+}
+table tr{
+	border-bottom:1px solid white;
+}
+table tr td{
+	color: white;
+	padding:3px;
+	font-size: 14px;
+
+	a{
+		color:white;
+		font-weight: bold;
+	}
+}
+.green{
+
+			background-color:$green;
+			padding:15px 15px 17px 65px;
+
+			i{
+				font-size: 36px;
+				vertical-align: middle;
+				position:absolute;
+				margin-left:-47px;
+
+			}
+			
+		}
+
+		.bluealert{
+			background-color:$orange;
+			color:white;
+			padding:15px 15px 17px 65px;	
+
+			i{
+				font-size: 36px;
+				vertical-align: middle;
+				position:absolute;
+				margin-left:-47px;
+
+			}	
+
+			input[type='text']{
+				display: block;
+				width:320px;
+				height:20px;
+				font-size:16px;
+				padding:10px;
+				border:1px solid white;
+				background-color:$orange;
+				color:white;
+				margin-top:10px;
+				margin-bottom:5px;
+			}	
+
+			button{
+				position: absolute;
+				margin-top:-46px;
+				margin-left:264px;
+				padding:11px 9px 10px 9px;
+				width:77px;
+				height:40px;
+				font-size: 15px;
+				background-color: $lorange;
+			}
+
+				::-webkit-input-placeholder {
+				   color: white;
+				}
+
+				:-moz-placeholder { /* Firefox 18- */
+				   color: white;  
+				}
+
+				::-moz-placeholder {  /* Firefox 19+ */
+				   color: white;  
+				}
+
+				:-ms-input-placeholder {  
+				   color: white;  
+				}
+			}
+
+		.redalert{
+			background-color:$red;
+			color:white;
+			padding:15px 15px 17px 65px;
+
+
+			i{
+				font-size: 36px;
+				vertical-align: middle;
+				position:absolute;
+				margin-left:-47px;
+
+			}	
+		}
