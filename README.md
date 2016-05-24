@@ -1,0 +1,30 @@
+# qualifyme
+Uses geolocation to see if a user qualifies for membership to a credit union based on current location.
+
+	This is an example of how the script can be imported into your website with an iframe.  
+	You can put your option tags on the end of the url.  Iframe should be fully responsive to
+	resizing and browser windows.
+
+	Parameters: aa
+	Name: admistrative area
+	Value: state ie 'IL' or country 'US'
+
+	Parameters: county
+	Name: county
+	Value: county name ie 'LaSalle County' (Must match format '[county name] County')
+
+	Parameters: township
+	Name: township
+	Value: township name ie 'South Ottawa Township' (Must match format '[township name] Township')
+
+	Parameters: phone
+	Name: phone number
+	Value: any value is allowed
+
+	Examples:
+	One County: /?aa=IL&county=Livingston County&phone=815-673-1000
+	Multiple Counties: /?aa=IL&county=Livingston County, LaSalle County&phone=815-673-1000
+	One Township: /?aa=IL&township=Bruce Township&phone=815-673-1000
+	Multiple Townships: /?aa=IL&township=Bruce Township, South Ottawa Township&phone=815-673-1000
+
+<iframe src="http://url/?aa=IL&county=Livingston%20County&phone=815-673-1000" width="100%" height="100%"frameborder="0" style="border:0" />
