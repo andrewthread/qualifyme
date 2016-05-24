@@ -6,11 +6,15 @@ You can put your option tags on the end of the url.  Iframe should be fully resp
 resizing and browser windows.
 
 Parameters: aa
+
 Name: admistrative area
+
 Value: state ie 'IL' or country 'US'
 
 Parameters: county
+
 Name: county
+
 Value: county name ie 'LaSalle County' (Must match format '[county name] County')
 
 Parameters: township
