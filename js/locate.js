@@ -80,7 +80,7 @@ while(address.long_name != towns[i]){
       break;
     }
     else if (i > towns.length){
-    x.innerHTML =  "<p class=\"bluealert\"><i class=\"material-icons\">pause_circle_outline</i>We placed you in " + address.long_name + ", based on your location. <br/><b>Lets try your current " + locType +".</b> <input placeholder=\"i.e. " + locExample + "\" id=\"zip\" name=\"zip\" type=\"text\"/> <button id=\"getlocal\" onclick=\"checkAgain(towns, aa, adminLevel, phone, lat, log)\">Submit</button></p>";  
+      x.innerHTML =  "<p class=\"bluealert\"><i class=\"material-icons\">pause_circle_outline</i>We placed you in " + address.long_name + ", based on your location. <br/><b>Lets try your current " + locType +".</b> <input placeholder=\"i.e. " + locExample + "\" id=\"zip\" name=\"zip\" type=\"text\"/> <button id=\"getlocal\" onclick=\"checkAgain(towns, aa, adminLevel, phone, lat, log)\">Submit</button></p>";  
       break;
     }
 }
@@ -136,7 +136,7 @@ function detailsCallback(place, status) {
 
       placeTable += "<tr><td><a href=\"" + place.website + "\">" + place.name + "</a></td><td>" + place.vicinity + "</td></tr>";
 
-      if(j === count){
+        if(j === count){
       
       container.innerHTML += placeTable + "</table>";            
     }
@@ -146,15 +146,20 @@ function detailsCallback(place, status) {
 var i = -1; 
 while(address.long_name != towns[i]){
   i++;
+
 if (address.long_name == towns[i]){
+
   x.innerHTML = "<p class=\"green\"><i class=\"material-icons\">thumb_up</i> Based on your current location in " + address.long_name + ", <b>you are eligible for membership</b>. Please review all qualifications to determine if you fully qualify.</p>";
   break;
-}else if (i > towns.length){
+
+}else if(i > towns.length){
 
   x.innerHTML =  "<p class=\"redalert\"><i class=\"material-icons\">highlight_off</i> Sorry you are not eligible at this time, based on your current location in <b>" + address.long_name +"</b>. You may still qualify though, please see the full terms to learn more. If this location is wrong please call us at " + phone + " to determine your membership status. <br/><br/><b>Do you qualify for these credit unions?</b><br/>Here are a few nearby credit unions you may be eligible to join.</p><div id=\"results\"></div></p>";
-  var container = document.getElementById('results');
-
-  var service = new google.maps.places.PlacesService(container);
+   
+    var container = document.getElementById('results');
+  
+    var service = new google.maps.places.PlacesService(container);
+  
   service.nearbySearch(request, callback);
   break;
 }
