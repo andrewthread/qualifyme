@@ -20,11 +20,18 @@ var getUrlParameter = function getUrlParameter(sParam) {
 };
 
 function getLocation() {
+
+  x.innerHTML = "<div class=\"loader\"><p>Locating you...</p><img src=\"images/245.gif\"/></div>";
+
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition, error,{maximumAge:10000, timeout:5000, enableHighAccuracy:true});
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
+}
+
+function error(){
+    x.innerHTML = "We couldn't seem to find you. Are you sure you accepted the location request? Maybe it took too long? Refresh this page to try again.";
 }
 
 function traverseJson(json,adminLevel){
@@ -47,7 +54,9 @@ if(getUrlParameter('county')){
   county = decodeURIComponent(getUrlParameter('county'));
   adminLevel = "administrative_area_level_2";
   locType = "city";
-  locExample = "Streator, IL";
+  var locExample = 'Streator, IL';
+  $.ajax({url: 'http://ipinfo.io', dataType: 'json', async: false, success: function(response) {
+    locExample = response.city + ", " + response.region;}});
 }
 
 if(getUrlParameter('township')){
@@ -80,7 +89,7 @@ while(address.long_name != towns[i]){
       break;
     }
     else if (i > towns.length){
-      x.innerHTML =  "<p class=\"bluealert\"><i class=\"material-icons\">pause_circle_outline</i>We placed you in " + address.long_name + ", based on your location. <br/><b>Lets try your current " + locType +".</b> <input placeholder=\"i.e. " + locExample + "\" id=\"zip\" name=\"zip\" type=\"text\"/> <button id=\"getlocal\" onclick=\"checkAgain(towns, aa, adminLevel, phone, lat, log)\">Submit</button></p>";  
+      x.innerHTML =  "<p class=\"bluealert\"><i class=\"material-icons\">pause_circle_outline</i>We placed you in " + address.long_name + ", based on your location. <br/><b>Lets try your current " + locType +".</b> <input value=\"" + locExample + "\" placeholder=\"i.e. " + locExample + "\" id=\"zip\" name=\"zip\" type=\"text\"/> <button id=\"getlocal\" onclick=\"checkAgain(towns, aa, adminLevel, phone, lat, log)\">Submit</button></p>";  
       break;
     }
 }

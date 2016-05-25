@@ -50,6 +50,19 @@ button{
 	padding-right:10px;
 	padding-bottom: 10px;
 }
+.loader{
+	width:150px;
+	display: block;
+	margin:auto;
+	text-align: center;
+	margin-top:40px;
+
+	p{
+		text-align: center;
+		color:$blue;
+		margin-bottom:5px;
+	}
+}
 table {
 	width: 96%;
     border-collapse: collapse;
