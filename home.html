@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css">
+	<title>CUalify - Let them know they qualify for membership</title>
+ </head>
+<body>
+<div class="header">
+	<div class="wrapper">
+	<img class="logo" src="images/logo.png"/>
+	</div>
+</div>
+<main>
+<div class="wrapper">
+<p>Do visitors to your credit union website know if they qualify for membership without having to search and find the requirements?</p>
+<b>Simplify!</b>
+<p>We created a one click qualification based on the current location of the user. A user simply clicks one button on your credit union site and is alerted whether or not they qualify for membership based on their location within a county or township.</p>
+
+ <p id="demo"></p>
+</div>
+</main>
+<div class="wrapper">
+ <button id="getlocal" onclick="getLocation()">
+	<i class="material-icons">beenhere</i> 
+		Check by my current location
+ </button>
+</div>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ&libraries=places"></script>
+ <script type="text/javascript" src="js/locate.min.js"></script>
+</body>
+</html>
