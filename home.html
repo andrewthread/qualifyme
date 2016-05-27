@@ -17,16 +17,114 @@
 <p>Do visitors to your credit union website know if they qualify for membership without having to search and find the requirements?</p>
 <b>Simplify!</b>
 <p>We created a one click qualification based on the current location of the user. A user simply clicks one button on your credit union site and is alerted whether or not they qualify for membership based on their location within a county or township.</p>
+<b>Our Method</b>
+<p>We employ multiple methods of geolocation to track the most reliable location of the user. If the user lands outside of the membership area they are prompted to enter their city to double check whether they qualify.</p>
+<b>Pro Credit Union</b>
+<p>If a member does not qualify for your credit union they are given options of nearby credit unions in which they maybe eligible for membership. We don't want to lose them to a bank so we present other credit union options.</p>
 
- <p id="demo"></p>
+<p id="demo"></p>
 </div>
 </main>
 <div class="wrapper">
+
+<h2>Getting Started</h2>
+<p>This is an example of how the script can be imported into your website with an iframe.
+You can put your option tags on the end of the url. Iframe should be fully responsive to resizing and browser windows. The following inputs are supported.</p>
+
+<div class="center">
+<div class="area">
+	<img src="images/state.png"/>
+	<b>State / Country</b>
+</div>
+
+<div class="area">
+	<img src="images/county.png"/>
+	<b>County</b>
+</div>
+
+<div class="area">
+	<img src="images/township.png"/>
+	<b>Township</b>
+</div>
+
+<div class="area">
+	<img src="images/city.png"/>
+	<b>City</b>
+</div>
+
+<div class="area">
+	<img src="images/phone.png"/>
+	<b>Phone</b>
+</div>
+</div>
+<br/>
+<p>
+<b>Parameters: aa</b><br/>
+
+Name: admistrative area<br/>
+
+Value: state ie 'IL' or country 'US'<br/>
+
+<br/>
+<b>Parameters: county</b><br/>
+
+Name: county<br/>
+
+Value: county name ie 'LaSalle County' (Must match format '[county name] County')<br/>
+<br/>
+<b>Parameters: township</b><br/>
+
+Name: township<br/>
+
+Value: township name ie 'South Ottawa Township' (Must match format '[township name] Township')<br/>
+<br/>
+<b>Parameters: city (NOT SUPPORTED)(PENDING DEVELOPMENT)</b><br/>
+
+Name: city<br/>
+
+Value: full city name (Must match format '[city name]')<br/>
+<br/>
+<b>Parameters: phone</b><br/>
+
+Name: phone number<br/>
+
+Value: any value is allowed<br/>
+
+Notes: The credit union's phone number</br>
+<br/>
+<h2>Examples:</h2>
+
+<b>One County</b>
+<pre>https://cualify.org/?aa=IL&county=Livingston County&phone=815-673-1000</pre><br/>
+
+<b>Multiple Counties</b>
+<pre>https://cualify.org/?aa=IL&county=Livingston County, LaSalle County&phone=815-673-1000</pre><br/>
+
+<b>One Township</b>
+<pre>https://cualify.org/?aa=IL&township=Bruce Township&phone=815-673-1000</pre><br/>
+
+<b>Multiple Townships</b>
+<pre>https://cualify.org/?aa=IL&township=Bruce Township, South Ottawa Township&phone=815-673-1000</pre><br/>
+
+<br/>
+<h2>Completed Example</h2>
+<p>Below is the code that you would import into your website.</p>
+<pre>&lt;iframe src="https://cualify.org/?aa=IL&county=Some%20County&phone=1234" width="100%" height="100%"frameborder="0" style="border:0" /&gt;</pre>
+ 
+ 
+ 
  <button id="getlocal" onclick="getLocation()">
 	<i class="material-icons">beenhere</i> 
 		Check by my current location
  </button>
+
+<footer>
+<p>&copy; 2016 Streator Onized Credit Union</p><br/>
+<a href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="images/ccbyncnd.jpg"/></a>
+<br/>
+</footer>
 </div>
+
  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ&libraries=places"></script>
  <script type="text/javascript" src="js/locate.min.js"></script>
 </body>

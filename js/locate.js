@@ -55,7 +55,7 @@ if(getUrlParameter('county')){
   adminLevel = "administrative_area_level_2";
   locType = "city";
   var locExample = 'Streator, IL';
-  $.ajax({url: 'http://ipinfo.io', dataType: 'json', async: false, success: function(response) {
+  $.ajax({url: 'https://ipinfo.io', dataType: 'json', async: false, success: function(response) {
     locExample = response.city + ", " + response.region;}});
 }
 
