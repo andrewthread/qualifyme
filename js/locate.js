@@ -75,8 +75,14 @@ if(getUrlParameter('township')){
   locExample = "912 N. Shabbona St., Streator IL";
 }
 aa = decodeURIComponent(getUrlParameter('aa'));
+country = decodeURIComponent(getUrlParameter('country'));
+
 if(aa === 'undefined'){
   aa = '';
+}
+
+if(country === 'undefined'){
+  country = '';
 }
 
 county = county.split(',');
@@ -100,7 +106,7 @@ while(address.long_name != towns[i]){
       break;
     }
     else if (i > towns.length){
-      x.innerHTML =  "<p class=\"bluealert\"><i class=\"material-icons\">pause_circle_outline</i>We placed you in " + address.long_name + ", based on your location. <br/><b>Lets try your current " + locType +".</b> <input value=\"" + locExample + "\" placeholder=\"i.e. " + locExample + "\" id=\"zip\" name=\"zip\" type=\"text\"/> <button id=\"getlocal\" onclick=\"checkAgain(towns, aa, adminLevel, phone, lat, log)\">Submit</button></p>";  
+      x.innerHTML =  "<p class=\"bluealert\"><i class=\"material-icons\">pause_circle_outline</i>We placed you in " + address.long_name + ", based on your location. <br/><b>Lets try your current " + locType +".</b> <input value=\"" + locExample + "\" placeholder=\"i.e. " + locExample + "\" id=\"zip\" name=\"zip\" type=\"text\"/> <button id=\"getlocal\" onclick=\"checkAgain(towns, aa, adminLevel, phone, lat, log, country)\">Submit</button></p>";  
       break;
     }
 }
@@ -109,11 +115,11 @@ while(address.long_name != towns[i]){
 });
 }
 
-function checkAgain(towns, aa, adminLevel, phone, lat, log){
+function checkAgain(towns, aa, adminLevel, phone, lat, log, country){
 
 var y = document.getElementById("zip").value;
 
-var json = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ&components=administrative_area:" + aa + "&components=country:US&address=" + y;
+var json = "https://maps.googleapis.com/maps/api/geocode/json?&key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ&components=administrative_area:" + aa + "&components=country:" + country + "&address=" + y;
 
 $.getJSON(json, function (json) {
 
