@@ -24,7 +24,7 @@ function getLocation() {
   x.innerHTML = "<div class=\"loader\"><p>Locating you...</p><img src=\"images/245.gif\"/></div>";
 
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, error,{maximumAge:10000, timeout:5000, enableHighAccuracy:true});
+        navigator.geolocation.getCurrentPosition(showPosition, error,{maximumAge:10000, timeout:10000, enableHighAccuracy:true});
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
@@ -55,7 +55,16 @@ if(getUrlParameter('county')){
   adminLevel = "administrative_area_level_2";
   locType = "city";
   var locExample = 'Streator, IL';
-  $.ajax({url: 'https://ipinfo.io', dataType: 'json', async: false, success: function(response) {
+  $.ajax({url: 'http://ipinfo.io', dataType: 'json', async: false, success: function(response) {
+    locExample = response.city + ", " + response.region;}});
+}
+
+if(getUrlParameter('city')){
+  county = decodeURIComponent(getUrlParameter('city'));
+  adminLevel = "locality";
+  locType = "city";
+  var locExample = 'Streator, IL';
+  $.ajax({url: 'http://ipinfo.io', dataType: 'json', async: false, success: function(response) {
     locExample = response.city + ", " + response.region;}});
 }
 
