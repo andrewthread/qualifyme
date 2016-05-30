@@ -74,8 +74,10 @@ if(getUrlParameter('township')){
   locType = "full address";
   locExample = "912 N. Shabbona St., Streator IL";
 }
-
 aa = decodeURIComponent(getUrlParameter('aa'));
+if(aa === 'undefined'){
+  aa = '';
+}
 
 county = county.split(',');
 
