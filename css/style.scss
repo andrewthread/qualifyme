@@ -17,6 +17,7 @@ $ddblue: #0C2F4E;
 $lblue: #5bb6e3;
 $black: #232323;
 $red: #eb4e41;
+$lblue: #caedfe;
 
 html, body{
 	height:100%;
@@ -35,7 +36,9 @@ button{
 	cursor: pointer !important;
 	background-color: $blue;
 	color:white;
-
+	margin:auto;
+	vertical-align: middle;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
 
 			i{
 				font-size: 36px;
@@ -134,7 +137,7 @@ hr{
 	}
 }
 .green{
-
+    		box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
 			background-color:$green;
 			padding:15px 15px 17px 65px;
 			color:white;
@@ -150,6 +153,7 @@ hr{
 		}
 
 		.bluealert{
+		    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
 			background-color:$orange;
 			color:white;
 			padding:15px 15px 17px 65px;	
@@ -184,6 +188,7 @@ hr{
 				height:40px;
 				font-size: 15px;
 				background-color: $lorange;
+				box-shadow: none;
 			}
 
 				::-webkit-input-placeholder {
@@ -204,6 +209,7 @@ hr{
 			}
 
 		.redalert{
+		    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
 			background-color:$red;
 			color:white;
 			padding:15px 15px 17px 65px;
@@ -274,6 +280,10 @@ code {font-size:1.2em;
 	.logo{
 		width:247px;
 	}
+}
+.white-alert{
+	background-color: white;
+	padding:15px;
 }
 footer{
 	height:40px;

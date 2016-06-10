@@ -31,7 +31,7 @@ function getLocation() {
 }
 
 function error(){
-    x.innerHTML = "We couldn't seem to find you. Are you sure you accepted the location request? Maybe it took too long? Refresh this page to try again.";
+    x.innerHTML = "<div class=\"white-alert\">We couldn't seem to find you. Are you sure you accepted the location request? Maybe it took too long? Refresh this page to try again.</div>";
 }
 
 function traverseJson(json,adminLevel){
@@ -174,14 +174,12 @@ while(address.long_name != towns[i]){
   i++;
 
 if (address.long_name == towns[i]){
-
   x.innerHTML = "<p class=\"green\"><i class=\"material-icons\">thumb_up</i> Based on your current location in " + address.long_name + ", <b>you are eligible for membership</b>. Please review all qualifications to determine if you fully qualify.</p>";
   break;
 
 }else if(i > towns.length){
 
   x.innerHTML =  "<p class=\"redalert\"><i class=\"material-icons\">highlight_off</i> Sorry you are not eligible at this time, based on your current location in <b>" + address.long_name +"</b>. You may still qualify though, please see the full terms to learn more. If this location is wrong please call us at " + phone + " to determine your membership status. <br/><br/><b>Do you qualify for these credit unions?</b><br/>Here are a few nearby credit unions you may be eligible to join.</p><div id=\"results\"></div></p>";
-   
     var container = document.getElementById('results');
   
     var service = new google.maps.places.PlacesService(container);
