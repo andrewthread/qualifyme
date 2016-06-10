@@ -176,7 +176,7 @@ while(address.long_name !== towns[i]){
   i++;
 
 if (address.long_name === towns[i]){
-  var mapurl = "url('https://maps.googleapis.com/maps/api/staticmap?center=" + address.long_name + "&size=640x640&scale=2&maptype=terrain&key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ')";
+  var mapurl = "url('https://maps.googleapis.com/maps/api/staticmap?center=" + address.long_name + "," + aa + "&size=640x640&scale=2&maptype=terrain&key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ')";
   $("body").css("background-image", mapurl);
   x.innerHTML = "<p class=\"green\"><i class=\"material-icons\">thumb_up</i> Based on your current location in " + address.long_name + ", <b>you are eligible for membership</b>. Please review all qualifications to determine if you fully qualify.</p>";
   break;
