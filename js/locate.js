@@ -19,6 +19,10 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
 };
 
+function error(){
+    x.innerHTML = "<div class=\"white-alert\">We couldn't seem to find you. Are you sure you accepted the location request? Maybe it took too long? Refresh this page to try again.</div>";
+}
+
 function getLocation() {
 
   x.innerHTML = "<div class=\"loader\"><p>Locating you...</p><img src=\"images/245.gif\"/></div>";
@@ -28,10 +32,6 @@ function getLocation() {
     } else { 
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
-}
-
-function error(){
-    x.innerHTML = "<div class=\"white-alert\">We couldn't seem to find you. Are you sure you accepted the location request? Maybe it took too long? Refresh this page to try again.</div>";
 }
 
 function traverseJson(json,adminLevel){
@@ -54,7 +54,7 @@ if(getUrlParameter('county')){
   county = decodeURIComponent(getUrlParameter('county'));
   adminLevel = "administrative_area_level_2";
   locType = "city";
-  var locExample = 'Streator, IL';
+  locExample = 'Streator, IL';
   $.ajax({url: 'http://ipinfo.io', dataType: 'json', async: false, success: function(response) {
     locExample = response.city + ", " + response.region;}});
 }
@@ -63,7 +63,7 @@ if(getUrlParameter('city')){
   county = decodeURIComponent(getUrlParameter('city'));
   adminLevel = "locality";
   locType = "city";
-  var locExample = 'Streator, IL';
+  locExample = 'Streator, IL';
   $.ajax({url: 'http://ipinfo.io', dataType: 'json', async: false, success: function(response) {
     locExample = response.city + ", " + response.region;}});
 }
@@ -176,6 +176,8 @@ while(address.long_name !== towns[i]){
   i++;
 
 if (address.long_name === towns[i]){
+  var mapurl = "url('https://maps.googleapis.com/maps/api/staticmap?center=" + address.long_name + "&size=640x640&scale=2&maptype=terrain&key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ')";
+  $("body").css("background-image", mapurl);
   x.innerHTML = "<p class=\"green\"><i class=\"material-icons\">thumb_up</i> Based on your current location in " + address.long_name + ", <b>you are eligible for membership</b>. Please review all qualifications to determine if you fully qualify.</p>";
   break;
 
