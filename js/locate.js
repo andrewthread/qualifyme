@@ -37,7 +37,7 @@ function error(){
 function traverseJson(json,adminLevel){
     for (var i=0; i<json.results[0].address_components.length; i++) {
             for (var b=0;b<json.results[0].address_components[i].types.length;b++) {
-                if (json.results[0].address_components[i].types[b] == adminLevel) {
+                if (json.results[0].address_components[i].types[b] === adminLevel) {
                     //this is the object you are looking for
                     return json.results[0].address_components[i];
                     break;
@@ -99,13 +99,15 @@ towns = county;
 var address = traverseJson(json, adminLevel);
 
 var i = -1; 
-while(address.long_name != towns[i]){
+while(address.long_name !== towns[i]){
   i++;
-    if (address.long_name == towns[i]){
+    if (address.long_name === towns[i]){
       x.innerHTML = "<p class=\"green\"><i class=\"material-icons\">thumb_up</i> Based on your current location in " + address.long_name + ", <b>you are eligible for membership</b>. Please review all qualifications to determine if you fully qualify.</p>";
       break;
     }
     else if (i > towns.length){
+      var mapurl = "url('https://maps.googleapis.com/maps/api/staticmap?center=" + address.long_name + "&size=640x640&scale=2&maptype=terrain&key=AIzaSyCSXhvHQJlLixd41ZqI_IvOw9AcmNfAEbQ')";
+      $("body").css("background-image", mapurl);
       x.innerHTML =  "<p class=\"bluealert\"><i class=\"material-icons\">pause_circle_outline</i>We placed you in " + address.long_name + ", based on your location. <br/><b>Lets try your current " + locType +".</b> <input value=\"" + locExample + "\" placeholder=\"i.e. " + locExample + "\" id=\"zip\" name=\"zip\" type=\"text\"/> <button id=\"getlocal\" onclick=\"checkAgain(towns, aa, adminLevel, phone, lat, log, country)\">Submit</button></p>";  
       break;
     }
@@ -137,7 +139,7 @@ var count;
 
 function callback(results, status) {
 
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
 
       count = results.length;
 
@@ -158,7 +160,7 @@ function detailsCallback(place, status) {
       
       j++;
 
-  if (status == google.maps.places.PlacesServiceStatus.OK) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
 
       placeTable += "<tr><td><a href=\"" + place.website + "\">" + place.name + "</a></td><td>" + place.vicinity + "</td></tr>";
 
@@ -170,10 +172,10 @@ function detailsCallback(place, status) {
 }
 
 var i = -1; 
-while(address.long_name != towns[i]){
+while(address.long_name !== towns[i]){
   i++;
 
-if (address.long_name == towns[i]){
+if (address.long_name === towns[i]){
   x.innerHTML = "<p class=\"green\"><i class=\"material-icons\">thumb_up</i> Based on your current location in " + address.long_name + ", <b>you are eligible for membership</b>. Please review all qualifications to determine if you fully qualify.</p>";
   break;
 
